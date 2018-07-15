@@ -1,6 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 logs/
+transaction-logs/
 
 ### STS ###
 .apt_generated
