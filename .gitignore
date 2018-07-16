@@ -3,6 +3,7 @@
 logs/
 transaction-logs/
 #generator*.xml
+*.properties
 
 ### STS ###
 .apt_generated
