@@ -17,8 +17,15 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 
+/**
+ * 
+ * @description employee数据库的XA配置，分布式事务交由Atomikos管理
+ * @author guokai
+ * @date 2018年7月16日
+ * @version v1.0
+ */
 @Configuration
-@MapperScan(basePackages= "com.monster.demo.dao.employee",sqlSessionFactoryRef="employeeSqlSessionFactory")
+@MapperScan(basePackages= "com.monster.demo.dao.employee",sqlSessionTemplateRef="employeeSqlSessionTemplate")
 public class EmployeeDatasourceXAConfig {
 	
 	@Autowired

@@ -27,21 +27,22 @@ public class XATransactionTestServiceImpl implements XATransactionTestService{
 	public void insertTwoDbTest() {
 		
 		UserBaseInfo user=new UserBaseInfo();
-		user.setRealName("first_user");
-		user.setUid("1111111111");
-		user.setNickName("user111");
+		user.setRealName("second_user");
+		user.setUid("222222");
+		user.setNickName("user222");
 		user.setGmtCreate(new Date());
 		user.setGmtModified(new Date());
 		userBaseInfoMapper.insert(user);
 		
-		//int a=10/0;
 		
 		EmployeeBaseInfo employee=new EmployeeBaseInfo();
-		employee.setRealName("first_employee");
-		employee.setNickName("employee111");
+		employee.setRealName("second_employee");
+		employee.setNickName("employee222");
 		employee.setGmtCreate(new Date());
 		employee.setGmtModified(new Date());
 		employeeBaseInfoMapper.insert(employee);
+		
+		int a=10/0;
 		
 		System.out.println("---end---");		
 		
