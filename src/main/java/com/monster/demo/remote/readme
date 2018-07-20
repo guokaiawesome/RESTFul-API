@@ -1,0 +1,2 @@
+inner表示对内的rpc或者http调用，走http，必须使用连接池
+outer表示对外部第三方的rpc或者http调用，走https,必须使用连接池

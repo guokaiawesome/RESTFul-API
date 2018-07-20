@@ -14,3 +14,13 @@ VO:   值对象（显示层对象），用于后端向前端返回的用于模�
 
 
 需要注意一点，java8（servlet3）中的接口已经可以有默认方法了，比如spring的WebMvcConfigurer，我也是在实现这个类的时候发现没有实现接口的方法竟然没有报错，点进去看了一下
+
+
+微服务之间的调用restTemplate必须强制使用httpclient的连接池，并且必须设计超时时间
+
+试一下@pathvariale和@requestbody一起使用，这个是跟httpmessageconverter密切相关的
+
+要把auth和restful这两个项目都要把Date类型替换掉
+
+Resttemplate配置httpclient连接池，且要区分http调用和https调用两个template，内部调用走http，外部调用走https
+httpclient连接池
