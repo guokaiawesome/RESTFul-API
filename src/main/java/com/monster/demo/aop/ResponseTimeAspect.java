@@ -22,15 +22,24 @@ public class ResponseTimeAspect {
 	
 	private static final Logger logger=LoggerFactory.getLogger(ResponseTimeAspect.class);
 
-	
-	@Pointcut("execution(public * com.monster.demo.controller.*(..))")
+	/**
+	 * @description   public 表示public 修饰的方法
+	 * 第一个*表示不关心返回值
+	 * 第二个*表示controller中的任何类
+	 * 第三个*表示类中的任何方法
+	 * 括号中的..表示不关心方法的参数
+	 */
+	@Pointcut("execution(public * com.monster.demo.controller.*.*(..))")
 	public void pointCut(){}
 
 	@Around("pointCut()")
-	public void outputLogAndExecute(ProceedingJoinPoint jp) throws Throwable {
+	public Object outputLogAndExecute(ProceedingJoinPoint jp) throws Throwable {
 		//这里的异常处理需要关注一下，实际测试一下，和统一异常处理的先后顺序
 		
-		jp.proceed();
+		//这一步必须要有返回值，否则controller返回不了任何值
+		Object obj=jp.proceed();
+		
+		return obj;
 	}
 	
 	

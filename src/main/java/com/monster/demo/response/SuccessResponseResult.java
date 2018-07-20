@@ -1,5 +1,6 @@
 package com.monster.demo.response;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Map;
 
@@ -22,11 +23,11 @@ public class SuccessResponseResult extends CommonResponseResult{
 		super();
 	}
 
-	public SuccessResponseResult(String result, Integer code, String msg, String subMsg, Date timestamp) {
+	public SuccessResponseResult(String result, Integer code, String msg, String subMsg, LocalDateTime timestamp) {
 		super(result, code, msg, subMsg, timestamp);
 	}
 	
-	public SuccessResponseResult(String result, Integer code, String msg, String subMsg, Date timestamp,Map<String, Object> data) {
+	public SuccessResponseResult(String result, Integer code, String msg, String subMsg, LocalDateTime timestamp,Map<String, Object> data) {
 		super(result, code, msg, subMsg, timestamp);
 		this.data = data;
 	}

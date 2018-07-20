@@ -17,6 +17,10 @@ VO:   值对象（显示层对象），用于后端向前端返回的用于模�
 
 
 微服务之间的调用restTemplate必须强制使用httpclient的连接池，并且必须设计超时时间
+连接池有两种思路：
+1.针对每个第三方服务建立一个连接池
+2.针对所有对三方服务建立一个连接池，httpclient4.5好像针对每个路由都可以有一个连接数
+建议采用第一种思路
 
 试一下@pathvariale和@requestbody一起使用，这个是跟httpmessageconverter密切相关的
 

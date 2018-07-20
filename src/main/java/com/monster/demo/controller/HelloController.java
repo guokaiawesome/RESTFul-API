@@ -1,5 +1,6 @@
 package com.monster.demo.controller;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class HelloController {
 	 */
 	@GetMapping("/")
 	public CommonResponseResult hello() {
-		SuccessResponseResult ret=new SuccessResponseResult(CommonConstant.SUCCESS, CodeAndMsgEnum.OK.getCode(), CodeAndMsgEnum.OK.getMsg(), "congratulation", new Date());
+		SuccessResponseResult ret=new SuccessResponseResult(CommonConstant.SUCCESS, CodeAndMsgEnum.OK.getCode(), CodeAndMsgEnum.OK.getMsg(), "congratulation", LocalDateTime.now());
 		Map<String,Object> data=new HashMap<>();
 		data.put("document", "https://github.com/guokaiawesome/SpringBoot2-RESTFulAPI");
 		ret.setData(data);

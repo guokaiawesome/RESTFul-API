@@ -1,9 +1,9 @@
 package com.monster.demo.response;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * 
@@ -40,7 +40,8 @@ public class CommonResponseResult {
 	 * 服务器响应的时间戳
 	 * 看下jdk8，如果有更好的日期类型的话替换掉
 	 */
-	private  Date timestamp;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private  LocalDateTime timestamp;
 
 	
 	public CommonResponseResult() {
@@ -48,7 +49,7 @@ public class CommonResponseResult {
 	}
 
 
-	public CommonResponseResult(String result, Integer code, String msg, String subMsg, Date timestamp) {
+	public CommonResponseResult(String result, Integer code, String msg, String subMsg, LocalDateTime timestamp) {
 		super();
 		this.result = result;
 		this.code = code;
@@ -98,12 +99,12 @@ public class CommonResponseResult {
 	}
 
 
-	public Date getTimestamp() {
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
 
 
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 
