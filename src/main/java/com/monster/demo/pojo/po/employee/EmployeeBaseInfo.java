@@ -1,6 +1,6 @@
 package com.monster.demo.pojo.po.employee;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class EmployeeBaseInfo {
     private Long id;
@@ -9,59 +9,87 @@ public class EmployeeBaseInfo {
 
     private String nickName;
 
-    private Date gmtCreate;
+    private Byte state;
 
-    private Date gmtModified;
+    /**
+     * 是否冻结，对应数据库的is_frozen字段
+     */
+    private Byte whetherFrozen;
 
-    public EmployeeBaseInfo(Long id, String realName, String nickName, Date gmtCreate, Date gmtModified) {
-        this.id = id;
-        this.realName = realName;
-        this.nickName = nickName;
-        this.gmtCreate = gmtCreate;
-        this.gmtModified = gmtModified;
-    }
+    /**
+     * 是否删除，对应数据库的is_deleted字段
+     */
+    private Byte whetherDeleted;
 
-    public EmployeeBaseInfo() {
-        super();
-    }
+    private LocalDateTime gmtCreate;
 
-    public Long getId() {
-        return id;
-    }
+    private LocalDateTime gmtModified;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getRealName() {
-        return realName;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setRealName(String realName) {
-        this.realName = realName == null ? null : realName.trim();
-    }
+	public String getRealName() {
+		return realName;
+	}
 
-    public String getNickName() {
-        return nickName;
-    }
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
-    }
+	public String getNickName() {
+		return nickName;
+	}
 
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
+	public Byte getState() {
+		return state;
+	}
 
-    public Date getGmtModified() {
-        return gmtModified;
-    }
+	public void setState(Byte state) {
+		this.state = state;
+	}
 
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
+	public Byte getWhetherFrozen() {
+		return whetherFrozen;
+	}
+
+	public void setWhetherFrozen(Byte whetherFrozen) {
+		this.whetherFrozen = whetherFrozen;
+	}
+
+	public Byte getWhetherDeleted() {
+		return whetherDeleted;
+	}
+
+	public void setWhetherDeleted(Byte whetherDeleted) {
+		this.whetherDeleted = whetherDeleted;
+	}
+
+	public LocalDateTime getGmtCreate() {
+		return gmtCreate;
+	}
+
+	public void setGmtCreate(LocalDateTime gmtCreate) {
+		this.gmtCreate = gmtCreate;
+	}
+
+	public LocalDateTime getGmtModified() {
+		return gmtModified;
+	}
+
+	public void setGmtModified(LocalDateTime gmtModified) {
+		this.gmtModified = gmtModified;
+	}
+
+
+    
+    
 }

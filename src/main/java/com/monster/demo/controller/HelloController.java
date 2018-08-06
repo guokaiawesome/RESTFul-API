@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,9 +28,11 @@ import com.monster.demo.response.SuccessResponseResult;
  * @date 2018年7月8日
  * @version v1.0
  */
-@CrossOrigin(maxAge=3600)
+//@CrossOrigin(maxAge=3600)
 @RestController
 public class HelloController {
+	
+	private static final Logger logger=LoggerFactory.getLogger(HelloController.class);
 	
 	/**
 	 * 
@@ -38,6 +42,8 @@ public class HelloController {
 	 */
 	@GetMapping("/")
 	public CommonResponseResult hello() {
+		logger.info("hello-----------------------");
+		logger.debug("hello2---------------------");
 		SuccessResponseResult ret=new SuccessResponseResult(CommonConstant.SUCCESS, CodeAndMsgEnum.OK.getCode(), CodeAndMsgEnum.OK.getMsg(), "congratulation", LocalDateTime.now());
 		Map<String,Object> data=new HashMap<>();
 		data.put("document", "https://github.com/guokaiawesome/SpringBoot2-RESTFulAPI");

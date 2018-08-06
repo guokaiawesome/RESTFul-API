@@ -1,6 +1,6 @@
 package com.monster.demo.pojo.po.user;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class UserBaseInfo {
     private Long id;
@@ -11,22 +11,21 @@ public class UserBaseInfo {
 
     private String nickName;
 
-    private Date gmtCreate;
+    private Byte state;
 
-    private Date gmtModified;
+    /**
+     * 是否冻结，对应数据库的is_frozen字段
+     */
+    private Byte whetherFrozen;
 
-    public UserBaseInfo(Long id, String uid, String realName, String nickName, Date gmtCreate, Date gmtModified) {
-        this.id = id;
-        this.uid = uid;
-        this.realName = realName;
-        this.nickName = nickName;
-        this.gmtCreate = gmtCreate;
-        this.gmtModified = gmtModified;
-    }
+    /**
+     * 是否删除，对应数据库的is_deleted字段
+     */
+    private Byte whetherDeleted;
 
-    public UserBaseInfo() {
-        super();
-    }
+    private LocalDateTime gmtCreate;
+
+    private LocalDateTime gmtModified;
 
     public Long getId() {
         return id;
@@ -60,19 +59,52 @@ public class UserBaseInfo {
         this.nickName = nickName == null ? null : nickName.trim();
     }
 
-    public Date getGmtCreate() {
+    public Byte getState() {
+        return state;
+    }
+
+    public void setState(Byte state) {
+        this.state = state;
+    }
+
+    public Byte getWhetherFrozen() {
+		return whetherFrozen;
+	}
+
+	public void setWhetherFrozen(Byte whetherFrozen) {
+		this.whetherFrozen = whetherFrozen;
+	}
+
+	public Byte getWhetherDeleted() {
+		return whetherDeleted;
+	}
+
+	public void setWhetherDeleted(Byte whetherDeleted) {
+		this.whetherDeleted = whetherDeleted;
+	}
+
+	public LocalDateTime getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public void setGmtCreate(LocalDateTime gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
 
-    public Date getGmtModified() {
+    public LocalDateTime getGmtModified() {
         return gmtModified;
     }
 
-    public void setGmtModified(Date gmtModified) {
+    public void setGmtModified(LocalDateTime gmtModified) {
         this.gmtModified = gmtModified;
     }
+
+	@Override
+	public String toString() {
+		return "UserBaseInfo [id=" + id + ", uid=" + uid + ", realName=" + realName + ", nickName=" + nickName
+				+ ", state=" + state + ", whetherFrozen=" + whetherFrozen + ", whetherDeleted=" + whetherDeleted
+				+ ", gmtCreate=" + gmtCreate + ", gmtModified=" + gmtModified + "]";
+	}
+    
+    
 }

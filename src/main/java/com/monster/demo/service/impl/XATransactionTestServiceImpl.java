@@ -1,5 +1,6 @@
 package com.monster.demo.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -30,16 +31,16 @@ public class XATransactionTestServiceImpl implements XATransactionTestService{
 		user.setRealName("second_user");
 		user.setUid("222222");
 		user.setNickName("user222");
-		user.setGmtCreate(new Date());
-		user.setGmtModified(new Date());
+		user.setGmtCreate(LocalDateTime.now());
+		user.setGmtModified(LocalDateTime.now());
 		userBaseInfoMapper.insert(user);
 		
 		
 		EmployeeBaseInfo employee=new EmployeeBaseInfo();
 		employee.setRealName("second_employee");
 		employee.setNickName("employee222");
-		employee.setGmtCreate(new Date());
-		employee.setGmtModified(new Date());
+		employee.setGmtCreate(LocalDateTime.now());
+		employee.setGmtModified(LocalDateTime.now());
 		employeeBaseInfoMapper.insert(employee);
 		
 		int a=10/0;

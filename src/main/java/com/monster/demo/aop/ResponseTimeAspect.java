@@ -38,6 +38,9 @@ public class ResponseTimeAspect {
 	@Around("pointCut()")
 	public Object outputLogAndExecute(ProceedingJoinPoint jp) throws Throwable {
 		//这里的异常处理需要关注一下，实际测试一下，和统一异常处理的先后顺序
+		//这里可以试一下用两个logger来分别打印调用时间和异常，如果这里的异常能够被统一异常捕获的话
+		//就不打印异常，直接扔出异常，
+		//处理异常的时候不打印调用时间，或者打印一个特殊的值
 		
 		long start=Instant.now().toEpochMilli();
 		//这一步必须要有返回值，否则controller返回不了任何值
