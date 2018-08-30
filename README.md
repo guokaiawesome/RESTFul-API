@@ -1,6 +1,8 @@
 # RESTFul-API
 基于Spring Boot 2.0.3的RESTFul API
 
+主要是为了练习多个数据源的分布式事务管理，引用开源的Atomikos
+
 pojo分层说明：（和阿里java规约有些不一样）
 DTO:  用于前端和后端进行交互的传输对象
 PO:   数据库持久化对象，和数据库表结构一一对应
@@ -28,3 +30,5 @@ VO:   值对象（显示层对象），用于后端向前端返回的用于模�
 
 Resttemplate配置httpclient连接池，且要区分http调用和https调用两个template，内部调用走http，外部调用走https
 httpclient连接池
+
+统计文件夹下有我总记的RESTFul API相关知识
